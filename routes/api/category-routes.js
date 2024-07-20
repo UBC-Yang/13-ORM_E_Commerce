@@ -49,6 +49,7 @@ router.put('/:id', async (req, res) => {
     const updateCategory = await Category.update(req.body, {
       where: { id: req.params.id}
     });
+    res.status(200).json(updateCategory);
   } catch (err) {
     res.status(500).json({message: 'category failed to update'});
   }
@@ -60,6 +61,7 @@ router.delete('/:id', async (req, res) => {
     const deleteCategory = await Category.destroy({
       where: {id: req.params.id}
     });
+    res.status(200).json(deleteCategory);
   } catch (err) {
     res.status(500).json({message: 'category failed to delete'});
   }
